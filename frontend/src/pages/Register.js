@@ -6,24 +6,27 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  const handleRegister = async () => {
-    try {
-      await axios.post("https://user-management-system-zxg7.onrender.com/", {
+const handleRegister = async () => {
+  try {
+    await axios.post(
+      "https://user-management-system-zxg7.onrender.com/api/auth/register",
+      {
         email,
         password,
-        role: "admin", // 🔥 THIS LINE ADDED
-      });
+        role: "admin",
+      }
+    );
 
-      alert("Registered Successfully ✅");
-      navigate("/login");
+    alert("Registered Successfully ✅");
+    navigate("/login");
 
-    } catch (err) {
-      console.log(err);
-      alert("Registration Failed ❌");
-    }
-  };
+  } catch (err) {
+    console.log(err);
+    alert("Registration Failed ❌");
+  }
+};
 
+ 
   return (
     <div className="main">
 

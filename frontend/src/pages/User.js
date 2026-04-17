@@ -28,7 +28,7 @@ function Users() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/users", {
+      await axios.post("https://user-management-system-zxg7.onrender.com/", {
         email,
         password,
         role,
