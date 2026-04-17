@@ -17,7 +17,7 @@ function Users() {
   }, []);
 
   const fetchUsers = async () => {
-    const res = await axios.get("http://localhost:5000/api/users");
+    const res = await axios.get("https://user-management-system-zxg7.onrender.com/");
     setUsers(res.data);
   };
 
