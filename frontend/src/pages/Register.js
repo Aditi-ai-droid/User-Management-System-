@@ -21,11 +21,10 @@ const handleRegister = async () => {
     navigate("/login");
 
   } catch (err) {
-    console.log(err);
+    console.log(err.response);
     alert("Registration Failed ❌");
   }
 };
-
  
   return (
     <div className="main">

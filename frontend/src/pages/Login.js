@@ -8,14 +8,12 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      const res = await axios.post(
-        "https://user-management-system-zxg7.onrender.com/",
-        { email, password }
-      );
+const res = await axios.post(
+  "https://user-management-system-zxg7.onrender.com/api/auth/login",
+  { email, password }
+);
 
-      // 🔥 SAVE DATA
+
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userEmail", email);
       localStorage.setItem("role", res.data.role);
