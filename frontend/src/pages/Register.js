@@ -8,23 +8,30 @@ function Register() {
   const navigate = useNavigate();
 const handleRegister = async () => {
   try {
-    const res = await axios.post(
+    const res = await fetch(
       "https://user-management-system-zxg7.onrender.com/api/auth/register",
       {
-        email,
-        password,
-        role: "admin",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          role: "admin",
+        }),
       }
     );
 
-    console.log(res.data);
+    const data = await res.json();
+    console.log(data);
 
     alert("Registered Successfully ✅");
     navigate("/login");
 
   } catch (err) {
-    console.log(err.response); // 🔥 IMPORTANT
-    alert("Registration Failed ❌");
+    console.log(err);
+    alert("Error ❌");
   }
 };
  
