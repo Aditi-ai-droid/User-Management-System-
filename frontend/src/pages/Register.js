@@ -8,7 +8,7 @@ function Register() {
   const navigate = useNavigate();
 const handleRegister = async () => {
   try {
-    await axios.post(
+    const res = await axios.post(
       "https://user-management-system-zxg7.onrender.com/api/auth/register",
       {
         email,
@@ -17,11 +17,13 @@ const handleRegister = async () => {
       }
     );
 
+    console.log(res.data);
+
     alert("Registered Successfully ✅");
     navigate("/login");
 
   } catch (err) {
-    console.log(err.response);
+    console.log(err.response); // 🔥 IMPORTANT
     alert("Registration Failed ❌");
   }
 };
